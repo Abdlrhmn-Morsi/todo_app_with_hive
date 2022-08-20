@@ -55,7 +55,7 @@ class _HomeViewState extends State<HomeView> {
                             showTitleActions: true,
                             onConfirm: (date) {
                               if (value.isNotEmpty) {
-                                controller.createNote(date, value);
+                                controller.createTask(date, value);
                               }
                             },
                           );

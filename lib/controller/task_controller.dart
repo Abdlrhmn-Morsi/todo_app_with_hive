@@ -9,7 +9,7 @@ class TaskController extends GetxController {
   static const task = 'tasks';
   final Box<Task> box = Hive.box(task);
 
-  Future<void> createNote(date, text) async {
+  Future<void> createTask(date, text) async {
     Task task = Task(
       id: const Uuid().v1(),
       text: text,
@@ -40,7 +40,7 @@ class TaskController extends GetxController {
     update();
   }
 
-  Future<void> deleteNote({required Task task}) async {
+  Future<void> deleteTask({required Task task}) async {
     await task.delete();
     update();
   }

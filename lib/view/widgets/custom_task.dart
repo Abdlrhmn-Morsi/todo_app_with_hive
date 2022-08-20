@@ -70,7 +70,7 @@ class _CustomTaskState extends State<CustomTask> {
         ),
         trailing: GestureDetector(
           onTap: () {
-            controller.deleteNote(task: widget.task);
+            controller.deleteTask(task: widget.task);
           },
           child: const Icon(
             Icons.clear,
