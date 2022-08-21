@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_cashe_api/const/const.dart';
+import 'package:hive_cashe_api/controller/task_controller.dart';
 
 // ignore: must_be_immutable
 class CustomAppBar extends StatelessWidget {
@@ -9,6 +10,7 @@ class CustomAppBar extends StatelessWidget {
     Key? key,
     this.add,
   }) : super(key: key);
+  TaskController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +41,14 @@ class CustomAppBar extends StatelessWidget {
                 //dark mode
                 IconButton(
                   padding: const EdgeInsets.all(0),
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.switchTheme();
+                  },
                   icon: Image.asset(
                     'assets/icons/night.png',
                     width: 25,
                     height: 25,
+                    color: controller.getDarkMode()?Colors.white:Colors.black,
                   ),
                 ),
                 //add task

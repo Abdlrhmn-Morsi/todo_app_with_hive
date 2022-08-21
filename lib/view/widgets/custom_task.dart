@@ -25,7 +25,7 @@ class _CustomTaskState extends State<CustomTask> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color:controller.getDarkMode()? Colors.grey.shade800: Colors.white,
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
@@ -59,7 +59,7 @@ class _CustomTaskState extends State<CustomTask> {
           maxLines: 2,
           style: TextStyle(
             overflow: TextOverflow.ellipsis,
-            color: Colors.black,
+            color: controller.getDarkMode()?Colors.white:Colors.black,
             decoration:
                 widget.task.isCompleted ? TextDecoration.lineThrough : null,
           ),
