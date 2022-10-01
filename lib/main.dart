@@ -32,7 +32,6 @@ class MyApp extends StatelessWidget {
       theme: Themes.lightMode,
       darkTheme: Themes.darkMode,
       themeMode: controller.theme,
-      title: 'Flutter Demo',
       home: HomeView(),
     );
   }

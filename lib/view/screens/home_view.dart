@@ -17,6 +17,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    print('preesed');
     return GetBuilder<TaskController>(
       builder: (controller) => Scaffold(
         backgroundColor: controller.getDarkMode()
@@ -24,7 +25,7 @@ class _HomeViewState extends State<HomeView> {
             : Colors.grey.shade100,
         body: Column(
           children: [
-            const SizedBox(height: 30),
+            const SizedBox(height: 50),
             //appbar
             CustomAppBar(
               add: () {
@@ -33,10 +34,10 @@ class _HomeViewState extends State<HomeView> {
                   builder: (context) {
                     return Container(
                       width: Get.width,
-                      padding: EdgeInsets.only(
+                      margin: EdgeInsets.only(
                         bottom: MediaQuery.of(context).viewInsets.bottom,
                       ),
-                      margin: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: ListTile(
                         leading: const Icon(
                           Icons.subdirectory_arrow_right_outlined,
@@ -52,6 +53,25 @@ class _HomeViewState extends State<HomeView> {
                           onSubmitted: (value) {
                             Navigator.pop(context);
                             DatePicker.showTimePicker(
+                              theme: DatePickerTheme(
+                                itemStyle: TextStyle(
+                                  color: controller.getDarkMode()
+                                      ? Colors.white
+                                      : Colors.black,
+                                ),
+                                backgroundColor: controller.getDarkMode()
+                                    ? Colors.grey.shade800
+                                    : Colors.white,
+                                doneStyle: TextStyle(
+                                    color: controller.getDarkMode()
+                                        ? Colors.greenAccent
+                                        : Color.fromARGB(255, 85, 196, 142)),
+                                cancelStyle: TextStyle(
+                                  color: controller.getDarkMode()
+                                      ? Colors.white
+                                      : Colors.black,
+                                ),
+                              ),
                               context,
                               currentTime: DateTime.now(),
                               showSecondsColumn: false,
@@ -92,21 +112,49 @@ class _HomeViewState extends State<HomeView> {
                           builder: (context) {
                             return Container(
                               width: Get.width,
-                              padding: EdgeInsets.only(
+                              margin: EdgeInsets.only(
                                 bottom:
                                     MediaQuery.of(context).viewInsets.bottom,
                               ),
-                              margin:
+                              padding:
                                   const EdgeInsets.symmetric(horizontal: 16),
                               child: ListTile(
+                                leading: const Icon(
+                                  Icons.subdirectory_arrow_right_outlined,
+                                ),
+                                trailing: const Icon(
+                                  Icons.watch_later_outlined,
+                                ),
                                 title: TextField(
                                   controller: controller.taskController,
                                   decoration: const InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: 'Edite task'),
+                                    border: InputBorder.none,
+                                    hintText: 'Edite task',
+                                  ),
                                   onSubmitted: (value) {
                                     Navigator.pop(context);
                                     DatePicker.showTimePicker(
+                                      theme: DatePickerTheme(
+                                        itemStyle: TextStyle(
+                                          color: controller.getDarkMode()
+                                              ? Colors.white
+                                              : Colors.black,
+                                        ),
+                                        backgroundColor:
+                                            controller.getDarkMode()
+                                                ? Colors.grey.shade800
+                                                : Colors.white,
+                                        doneStyle: TextStyle(
+                                            color: controller.getDarkMode()
+                                                ? Colors.greenAccent
+                                                : Color.fromARGB(
+                                                    255, 85, 196, 142)),
+                                        cancelStyle: TextStyle(
+                                          color: controller.getDarkMode()
+                                              ? Colors.white
+                                              : Colors.black,
+                                        ),
+                                      ),
                                       context,
                                       currentTime: DateTime.now(),
                                       showSecondsColumn: false,

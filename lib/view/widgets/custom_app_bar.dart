@@ -30,7 +30,7 @@ class CustomAppBar extends StatelessWidget {
             personAppbar,
             //title
             const Text(
-              '# TASKS OF TO DAY',
+              '# TASKS OF THE DAY',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
