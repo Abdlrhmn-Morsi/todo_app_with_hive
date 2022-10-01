@@ -1,4 +1,4 @@
-# todo_app_with_hive
+# todo app with hive
 
 A new Flutter project.
 
